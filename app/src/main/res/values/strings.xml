@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Treasure-Hunt-Fixed</string>
+    <string name="title">Treasure Hunt!</string>
+    <string name="start_button">START!</string>
+    <string name="rules_title">How to Play/Rules:</string>
+    <string name="rules">Use your device\'s GPS to find a special location in the real world.<br/>
+        There will be three sites you will need to visit, and you will be given a clue for each one of them.<br/>
+        When you think you are close to the site described in the clue, click the "found it!" button.<br/>
+        When you correctly guess the location, you will receive a new clue for the next location.<br/>
+        Once you successfully find the last location, you will win the game and can share your time.</string>
 </resources>
