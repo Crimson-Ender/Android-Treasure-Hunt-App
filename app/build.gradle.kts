@@ -47,6 +47,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation("androidx.navigation:navigation-compose:2.7.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)

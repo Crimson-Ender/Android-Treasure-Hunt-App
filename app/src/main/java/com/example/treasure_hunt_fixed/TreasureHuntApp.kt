@@ -29,6 +29,8 @@ fun TreasureHuntApp(
 ){
     Log.d(TAG, "App Starting")
 
+    //request permissions here
+
     NavHost(
         navController = navController,
         startDestination = Screens.Start.name,
@@ -52,4 +54,9 @@ fun TreasureHuntApp(
         }
 
     }
+}
+
+@Composable
+fun PermissionsDialog(){
+
 }
