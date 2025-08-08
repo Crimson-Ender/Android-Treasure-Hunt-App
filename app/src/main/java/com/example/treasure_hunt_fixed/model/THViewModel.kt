@@ -21,4 +21,10 @@ class THViewModel: ViewModel() {
     private fun resetApp(){
         _uiState.value = THUiState(currentClue = 0)
     }
+
+    fun onPermissionsChange(usingFine: Boolean, usingCoarse:Boolean){
+        _uiState.value = _uiState.value.copy(
+            permissionsGranted = usingFine || usingCoarse, usingFinePosition = usingFine
+        )
+    }
 }

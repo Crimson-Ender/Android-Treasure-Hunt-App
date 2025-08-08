@@ -1,10 +1,15 @@
 package com.example.treasure_hunt_fixed
 
+import android.Manifest
 import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -15,6 +20,7 @@ import com.example.treasure_hunt_fixed.ui.CompleteScreen
 import com.example.treasure_hunt_fixed.ui.NextClueScreen
 import com.example.treasure_hunt_fixed.ui.StartScreen
 import com.example.treasurehunt.model.THViewModel
+import kotlin.system.exitProcess
 
 enum class Screens(){
     Start,Clue,NextClue,Complete
@@ -29,7 +35,7 @@ fun TreasureHuntApp(
 ){
     Log.d(TAG, "App Starting")
 
-    //request permissions here
+    RequestLocationPermission(viewModel)
 
     NavHost(
         navController = navController,
@@ -54,9 +60,4 @@ fun TreasureHuntApp(
         }
 
     }
-}
-
-@Composable
-fun PermissionsDialog(){
-
 }
