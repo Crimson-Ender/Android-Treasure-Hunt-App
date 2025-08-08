@@ -35,8 +35,11 @@ fun TreasureHuntApp(
 ){
     Log.d(TAG, "App Starting")
 
+    //show the user a pop-up asking for permissions, if they accept, the app will continue,
+    //otherwise, the app will close automatically.
     RequestLocationPermission(viewModel)
 
+    //
     NavHost(
         navController = navController,
         startDestination = Screens.Start.name,
@@ -44,19 +47,20 @@ fun TreasureHuntApp(
     ) {
         //navigate to the start screen
         composable(route = Screens.Start.name) {
-            StartScreen(onStartButtonClicked = {/**/})
+            StartScreen(viewModel,
+                onStartButtonClicked = {navController.navigate(Screens.Clue.name)})
         }
         //navigate to the clue screen
         composable(route = Screens.Clue.name) {
-            ClueScreen()
+            ClueScreen(viewModel)
         }
         //navigate to the next clue screen
         composable(route = Screens.NextClue.name) {
-            NextClueScreen()
+            NextClueScreen(viewModel)
         }
         //navigate to the completion screen
         composable(route = Screens.Complete.name) {
-            CompleteScreen()
+            CompleteScreen(viewModel)
         }
 
     }

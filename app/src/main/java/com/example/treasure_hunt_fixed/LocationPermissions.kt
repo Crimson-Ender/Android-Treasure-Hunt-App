@@ -17,10 +17,16 @@ import com.example.treasurehunt.model.THViewModel
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 
+
+/*
+Handles the app asking for permissions on startup. Presents the user with a pop-up prompt and asks them to accept or reject location permissions.
+If the user accepts location permissions,
+ */
 @Composable
 fun RequestLocationPermission(viewModel: THViewModel= viewModel()){
     val uiState by viewModel.uiState.collectAsState()
 
+    //precise location vs general location
     val permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
 
     val context = LocalContext.current
@@ -31,8 +37,10 @@ fun RequestLocationPermission(viewModel: THViewModel= viewModel()){
     ) {permissionsMap->
         val usingFine = permissionsMap[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
         val usingCoarse = permissionsMap[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false
+        //update permissions in the UI State class
         viewModel.onPermissionsChange(usingFine,usingCoarse)
 
+        //if the user did not accept BOTH fine and coarse location permissions, the app will automatically close itself.
         if(!usingFine && !usingCoarse){
             activity?.finish()
         }
@@ -40,6 +48,7 @@ fun RequestLocationPermission(viewModel: THViewModel= viewModel()){
 
     var showDialog by remember { mutableStateOf(!uiState.permissionsGranted) }
 
+    //present the user with a prompt to allow or deny location permissions
     if(showDialog){
         AlertDialog(
             onDismissRequest = {showDialog=false
@@ -49,6 +58,7 @@ fun RequestLocationPermission(viewModel: THViewModel= viewModel()){
             confirmButton = {
                 TextButton(
                     onClick = {
+                        //if the user accepts permissions, close the dialog and continue with the app
                         showDialog = false
                         permissionsLauncher.launch(permissions)
                     }
@@ -56,6 +66,7 @@ fun RequestLocationPermission(viewModel: THViewModel= viewModel()){
                     Text("Allow Access")}
                 },
             dismissButton = {
+                //if the user rejects permissions, automatically close the app
                 TextButton(onClick = {showDialog=false
                 activity?.finish()})
                 {Text("Deny Access") }
