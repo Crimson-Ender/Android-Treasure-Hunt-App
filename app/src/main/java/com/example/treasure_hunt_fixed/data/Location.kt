@@ -6,6 +6,7 @@ data class Location(
     val clue: Int,
     val hint: Int,
     val trivia:Int,
+    val img: Int,
     val long: Double,
     val lat: Double,
 ) {
@@ -17,6 +18,7 @@ data class Location(
                 clue = com.example.treasure_hunt_fixed.R.string.placeholder_clue,
                 hint = com.example.treasure_hunt_fixed.R.string.placeholder_hint,
                 trivia = com.example.treasure_hunt_fixed.R.string.placeholder_trivia,
+                img = com.example.treasure_hunt_fixed.R.drawable.placeholder,
                 long = 0.0,
                 lat = 0.0
             )

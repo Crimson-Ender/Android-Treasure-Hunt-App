@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.treasure_hunt_fixed.data.Datasource
 import com.example.treasure_hunt_fixed.data.Location
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,7 +16,7 @@ class THViewModel: ViewModel() {
 
     val uiState: StateFlow<THUiState> = _uiState.asStateFlow()
 
-    var locationsList: List<Location> = listOf()
+    var locationsList: List<Location> = Datasource().loadLocations()
 
     init{
         resetApp()

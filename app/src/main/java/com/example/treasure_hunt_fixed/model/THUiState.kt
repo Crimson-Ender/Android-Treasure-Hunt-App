@@ -5,7 +5,7 @@ import com.example.treasure_hunt_fixed.data.Location
 data class THUiState(
 
     val permissionsGranted: Boolean = false, //default value, the user will have to manually enable location permissions
-    val currentLocation: Location,
+    val currentLocation: Location = Location.createPlaceholder(),
 
     val currentClue: Int = 1, //default value, set to a different value during the hunt
 
