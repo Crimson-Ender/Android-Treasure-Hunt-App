@@ -19,7 +19,7 @@ class THViewModel: ViewModel() {
     }
 
     private fun resetApp(){
-        _uiState.value = THUiState(currentClue = 0)
+        _uiState.value = THUiState(currentClue = 1)
     }
 
     fun onPermissionsChange(usingFine: Boolean, usingCoarse:Boolean){

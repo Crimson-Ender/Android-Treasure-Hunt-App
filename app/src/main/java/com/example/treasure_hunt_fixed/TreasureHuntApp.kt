@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.treasure_hunt_fixed.model.TimerViewModel
 import com.example.treasure_hunt_fixed.ui.ClueScreen
 import com.example.treasure_hunt_fixed.ui.CompleteScreen
 import com.example.treasure_hunt_fixed.ui.NextClueScreen
@@ -31,6 +32,7 @@ private val TAG = "TreasureHuntApp"
 @Composable
 fun TreasureHuntApp(
     viewModel: THViewModel = viewModel(),
+    timerViewModel: TimerViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ){
     Log.d(TAG, "App Starting")
@@ -52,7 +54,10 @@ fun TreasureHuntApp(
         }
         //navigate to the clue screen
         composable(route = Screens.Clue.name) {
-            ClueScreen(viewModel)
+            ClueScreen(thViewModel=viewModel,
+                timerViewModel = timerViewModel,
+                onFoundButtonClicked = {/*placeholder*/},
+                onFinalCluedFound = {/*placeholder*/})
         }
         //navigate to the next clue screen
         composable(route = Screens.NextClue.name) {
