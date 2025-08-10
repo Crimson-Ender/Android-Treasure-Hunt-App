@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placeholder_name">Placeholder</string>
+    <string name="placeholder_clue">PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT. PLACEHOLDER CLUE TEXT.</string>
+    <string name="placeholder_hint">PLACEHOLDER HINT TEXT, PLACEHOLDER HINT TEXT, PLACEHOLDER HINT TEXT, PLACEHOLDER HINT TEXT, PLACEHOLDER HINT TEXT, PLACEHOLDER HINT TEXT. PLACEHOLDER HINT TEXT. PLACEHOLDER HINT TEXT.</string>
+    <string name="placeholder_trivia">PLACEHOLDER TRIVIA, PLACEHOLDER TRIVIA, PLACEHOLDER TRIVIA</string>
+
+    <string name="tebeau_name">Tebeau Tulip</string>
+    <string name="tebeau_clue">Beside where those in pursuit of knowledge sleep, a mechanical simulacrum of a flower looms. With a turn of a crank, its petals open to the sky above.</string>
+    <string name="tebeau_hint">On the east side of the OSU campus, this location is next to a dorm hall named for a man who defied society\'s bigotry, broke barriers, and made a name for himself as a great engineer.</string>
+    <string name="tebeau_trivia">The Tebeau Tulip and adjacent Tebeau Hall are named after Bill Tebeau, the first Black man to graduate from OSU. Denied housing at OSU on the basis of his race, he nonetheless persisted,
+        graduating with a chemical engineering degree before studying civil engineering on his own and becoming a highway engineer for the Oregon Department of Transportation where he worked for 36 years.</string>
+
+    <string name="rose_name">Avery Park Rose Garden</string>
+    <string name="rose_clue">Across a river of concrete and a river of water, where the blooms of spring and summer burst like fireworks atop thorny stems.</string>
+    <string name="rose_hint">Cross Mary\'s River, then follow the smell of roses to a donut-shaped stone.</string>
+    <string name="rose_trivia">placeholder</string>
+
+   <string name="train_name">Georgia Pacific Steam Engine No. 5</string>
+    <string name="train_clue">Beyond the bony ridge, a steel behemoth is where your destination lies. Using heat and pressure, it once pulled great weights across vast distances, but now lies dormant.</string>
+    <string name="train_hint">Old, retired steam locomotive.</string>
+    <string name="train_trivia">Built by the Baldwin Locomotive Works in Philadelphia, PA, for the Brooks-Scanlon Lumber Company in 1922 as #5, this Mikado (2-8-2) type locomotive started work in Bend, OR.
+        The locomotive was later sold to the Alaska Junk Co., in Portland, OR, and then bought in 1956 by the Georgia-Pacific Corp., to work in Toledo, OR. That year, the GP had purchased a stretch of ex-Coos Bay
+        Lumber trackage from Yaquina and Toledo to Selitz and Monmouth, but #5’s life on the line was short lived. It was abandoned in December 1959 and, the following year, the locomotive was donated to the City of Corvallis,
+        OR, and went on display in Avery Park.</string>
+</resources>

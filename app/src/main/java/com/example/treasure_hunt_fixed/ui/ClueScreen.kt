@@ -9,10 +9,14 @@ import com.google.android.gms.location.LocationServices
 import android.location.Location
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -32,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.treasure_hunt_fixed.model.TimerViewModel
+import kotlinx.coroutines.flow.combine
 
 @SuppressLint("DefaultLocale")
 private fun Long.formatTime():String {
@@ -74,6 +79,8 @@ fun ClueScreen(thViewModel: THViewModel = viewModel(),
     ) {innerPadding->
         Column(modifier.padding(innerPadding )){
 
+            //spacer to put some room
+            Spacer(modifier=modifier.height(100.dp))
             //timer box
             Box(modifier = modifier
                 .padding(start=10.dp,end=10.dp)
@@ -81,8 +88,42 @@ fun ClueScreen(thViewModel: THViewModel = viewModel(),
                 .fillMaxWidth()){
                 Text(text=timeValue.formatTime(),
                     fontSize = 90.sp,
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Bold,
                     modifier=modifier.align(Alignment.Center))
+            }
+
+            Text(text=stringResource(com.example.treasure_hunt_fixed.R.string.placeholder_clue),
+                modifier=modifier.padding(top=50.dp,start=10.dp,end=10.dp))
+
+
+            Box(modifier=modifier
+                .padding(top=64.dp,start=10.dp,end=10.dp)
+                .height(200.dp)){
+                if(!uiState.isHintRevealed){
+
+
+                    Button(onClick = {thViewModel.revealHint()},
+                        modifier=modifier
+                            .fillMaxWidth()
+                            .padding(top=50.dp, bottom = 50.dp)) {
+                        Text(text=stringResource(com.example.treasure_hunt_fixed.R.string.reveal_hint),
+                            fontWeight = FontWeight.SemiBold)
+                    }
+
+                    Spacer(modifier.height(50.dp))
+
+                }else{
+                    //display hint text
+                    Text(text=stringResource(com.example.treasure_hunt_fixed.R.string.placeholder_hint))
+                }
+
+            }
+
+            Button(onClick = onFoundButtonClicked,
+                modifier=modifier
+                    .fillMaxWidth()
+                    .padding(start=10.dp,end=10.dp)){
+                Text(text=stringResource(com.example.treasure_hunt_fixed.R.string.found_it), fontWeight = FontWeight.SemiBold)
             }
         }
     }

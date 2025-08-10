@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.treasure_hunt_fixed.data.Location
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,17 +15,25 @@ class THViewModel: ViewModel() {
 
     val uiState: StateFlow<THUiState> = _uiState.asStateFlow()
 
+    var locationsList: List<Location> = listOf()
+
     init{
         resetApp()
     }
 
     private fun resetApp(){
-        _uiState.value = THUiState(currentClue = 1)
+        _uiState.value = THUiState(currentClue = 1, currentLocation = locationsList[0])
     }
 
     fun onPermissionsChange(usingFine: Boolean, usingCoarse:Boolean){
         _uiState.value = _uiState.value.copy(
             permissionsGranted = usingFine || usingCoarse, usingFinePosition = usingFine
+        )
+    }
+
+    fun revealHint(){
+        _uiState.value = _uiState.value.copy(
+            isHintRevealed = true
         )
     }
 }

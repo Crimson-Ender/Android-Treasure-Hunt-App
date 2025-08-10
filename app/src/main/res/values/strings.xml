@@ -9,4 +9,6 @@
         When you correctly guess the location, you will receive a new clue for the next location.<br/>
         Once you successfully find the last location, you will win the game and can share your time.</string>
     <string name="clue">"Clue: "</string>
+    <string name="reveal_hint">Reveal Hint</string>
+    <string name="found_it">Found it!</string>
 </resources>
