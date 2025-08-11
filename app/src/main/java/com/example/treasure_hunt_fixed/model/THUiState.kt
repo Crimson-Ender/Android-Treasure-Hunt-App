@@ -1,11 +1,11 @@
 package com.example.treasurehunt.model
 
-import com.example.treasure_hunt_fixed.data.Location
+import com.example.treasure_hunt_fixed.data.THLocation
 
 data class THUiState(
 
     val permissionsGranted: Boolean = false, //default value, the user will have to manually enable location permissions
-    val currentLocation: Location = Location.createPlaceholder(),
+    val currentLocation: THLocation = THLocation.createPlaceholder(),
 
     val currentClue: Int = 1, //default value, set to a different value during the hunt
 
@@ -16,5 +16,7 @@ data class THUiState(
 
     val usingFinePosition: Boolean=false,
 
-    val isTimeRunning: Boolean = true
+    val isTimeRunning: Boolean = true,
+
+    var debugDistDiff: Double = 999.99
 )

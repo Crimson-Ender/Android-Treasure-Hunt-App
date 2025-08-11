@@ -12,6 +12,7 @@ import com.google.android.gms.location.Priority
 @Composable
 fun NextClueScreen(thViewModel: THViewModel = viewModel(),
                    timerViewModel: TimerViewModel=viewModel(),
-                   modifier: Modifier){
+                   modifier: Modifier= Modifier
+){
 
 }

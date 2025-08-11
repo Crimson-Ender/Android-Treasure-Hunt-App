@@ -1,11 +1,14 @@
 package com.example.treasurehunt.model
 
+import android.location.Location
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.treasure_hunt_fixed.data.Datasource
-import com.example.treasure_hunt_fixed.data.Location
+import com.example.treasure_hunt_fixed.data.THLocation
+import com.example.treasure_hunt_fixed.model.GeofenceUtils
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,13 +19,14 @@ class THViewModel: ViewModel() {
 
     val uiState: StateFlow<THUiState> = _uiState.asStateFlow()
 
-    var locationsList: List<Location> = Datasource().loadLocations()
+    var locationsList: List<THLocation> = Datasource().loadLocations()
 
     init{
         resetApp()
     }
 
     private fun resetApp(){
+        locationsList = Datasource().loadLocations()
         _uiState.value = THUiState(currentClue = 1, currentLocation = locationsList[0])
     }
 
@@ -36,5 +40,31 @@ class THViewModel: ViewModel() {
         _uiState.value = _uiState.value.copy(
             isHintRevealed = true
         )
+    }
+
+    var guessedLocation by mutableStateOf<Location?>(null)
+
+    fun checkLocationGuess(location: Location?){
+        guessedLocation=location
+
+        println("checkLocationGuess called")
+
+        if(location==null) return
+
+        //get the difference between the two points in kilometers
+        val distDifference = GeofenceUtils.calculateDistance(_uiState.value.currentLocation.lat,
+            _uiState.value.currentLocation.long,
+            location.latitude,
+            location.longitude)
+
+        val distMeters = distDifference * 1000
+
+        Log.d("TEST", "Distance: $distDifference km ($distMeters m)")
+            _uiState.value=_uiState.value.copy(
+                debugDistDiff = distDifference,
+                isCorrect = distDifference <0.1
+            )
+        Log.d("TEST", "isCorrect = ${uiState.value.isCorrect}")
+
     }
 }

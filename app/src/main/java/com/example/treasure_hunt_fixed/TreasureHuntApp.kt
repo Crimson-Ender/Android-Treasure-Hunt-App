@@ -61,7 +61,7 @@ fun TreasureHuntApp(
         }
         //navigate to the next clue screen
         composable(route = Screens.NextClue.name) {
-            NextClueScreen(viewModel)
+            NextClueScreen(viewModel,timerViewModel)
         }
         //navigate to the completion screen
         composable(route = Screens.Complete.name) {

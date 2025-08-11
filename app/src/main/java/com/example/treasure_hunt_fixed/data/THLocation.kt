@@ -1,6 +1,6 @@
 package com.example.treasure_hunt_fixed.data
 
-data class Location(
+data class THLocation(
     //everything will be string resources instead of hard-coded strings, hence the integer type
     val name: Int,
     val clue: Int,
@@ -12,15 +12,15 @@ data class Location(
 ) {
     companion object {
 
-        fun createPlaceholder(): Location {
-            return Location(
+        fun createPlaceholder(): THLocation {
+            return THLocation(
                 name = com.example.treasure_hunt_fixed.R.string.placeholder_name,
                 clue = com.example.treasure_hunt_fixed.R.string.placeholder_clue,
                 hint = com.example.treasure_hunt_fixed.R.string.placeholder_hint,
                 trivia = com.example.treasure_hunt_fixed.R.string.placeholder_trivia,
                 img = com.example.treasure_hunt_fixed.R.drawable.placeholder,
-                long = 0.0,
-                lat = 0.0
+                long = -123.2729333,
+                lat = 44.563125
             )
 
         }
