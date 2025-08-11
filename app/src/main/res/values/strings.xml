@@ -11,4 +11,13 @@
     <string name="clue">"Clue: "</string>
     <string name="reveal_hint">Reveal Hint</string>
     <string name="found_it">Found it!</string>
+    <string name="clue_found_header">Clue found!</string>
+    <string name="nice_work">Nice work! You found a clue!</string>
+    <string name="clue1_found">Two more clues left, you got this.</string>
+    <string name="clue2_found">Almost there, one more clue!</string>
+    <string name="next_clue">Next clue</string>
+    <string name="congrats">Congratulations!</string>
+    <string name="end"> You found the treasure!</string>
+    <string name="final_time"> Final Time: </string>
+    <string name="quit">Quit</string>
 </resources>

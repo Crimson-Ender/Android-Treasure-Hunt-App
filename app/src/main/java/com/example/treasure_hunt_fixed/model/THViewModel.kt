@@ -63,8 +63,28 @@ class THViewModel: ViewModel() {
             _uiState.value=_uiState.value.copy(
                 debugDistDiff = distDifference,
                 isCorrect = distDifference <0.1
+
             )
         Log.d("TEST", "isCorrect = ${uiState.value.isCorrect}")
+
+    }
+
+    fun nextLocation(){
+        val currentState = uiState.value
+        val currentClue = uiState.value.currentClue + 1
+
+        if (currentState.currentClue >3){
+            //prevent indexing errors
+            return
+        }
+
+
+        _uiState.value=_uiState.value.copy(
+                currentLocation = locationsList[currentState.currentClue],
+                currentClue = currentClue,
+                isCorrect = false,
+                isHintRevealed = false
+        )
 
     }
 }

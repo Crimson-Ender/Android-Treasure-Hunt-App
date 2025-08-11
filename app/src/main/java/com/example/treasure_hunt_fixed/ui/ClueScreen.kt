@@ -49,7 +49,7 @@ import com.example.treasure_hunt_fixed.model.TimerViewModel
 import kotlinx.coroutines.flow.combine
 
 @SuppressLint("DefaultLocale")
-private fun Long.formatTime():String {
+fun Long.formatTime():String {
     //format the timer output so it isn't just one giant integer of just seconds counting up
 
     val hours = this/3600
@@ -109,7 +109,7 @@ fun ClueScreen(thViewModel: THViewModel = viewModel(),
                     modifier=modifier.align(Alignment.Center))
             }
 
-            Text(text=stringResource(R.string.placeholder_clue),
+            Text(text=stringResource(uiState.currentLocation.clue),
                 modifier=modifier.padding(top=50.dp,start=10.dp,end=10.dp))
 
 
@@ -131,7 +131,7 @@ fun ClueScreen(thViewModel: THViewModel = viewModel(),
 
                 }else{
                     //display hint text
-                    Text(text=stringResource(R.string.placeholder_hint))
+                    Text(text=stringResource(uiState.currentLocation.hint))
                 }
 
             }
@@ -149,6 +149,12 @@ fun ClueScreen(thViewModel: THViewModel = viewModel(),
 
                         if(thViewModel.uiState.value.isCorrect){
                             //go to new next clue page
+                            if(uiState.currentClue!=3){
+                                onFoundButtonClicked()
+                            }else{
+                                onFinalCluedFound()
+                            }
+
                         }else{
                             //go to wrong guess page
                             showAlertDialog(activity)

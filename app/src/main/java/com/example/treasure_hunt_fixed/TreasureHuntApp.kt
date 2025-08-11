@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -56,12 +57,13 @@ fun TreasureHuntApp(
         composable(route = Screens.Clue.name) {
             ClueScreen(thViewModel=viewModel,
                 timerViewModel = timerViewModel,
-                onFoundButtonClicked = {/*placeholder*/},
-                onFinalCluedFound = {/*placeholder*/})
+                onFoundButtonClicked = {navController.navigate(Screens.NextClue.name)},
+                onFinalCluedFound = {navController.navigate(Screens.Complete.name)})
         }
         //navigate to the next clue screen
         composable(route = Screens.NextClue.name) {
-            NextClueScreen(viewModel,timerViewModel)
+            NextClueScreen(thViewModel=viewModel,timerViewModel=timerViewModel,
+                onNextButtonClicked = {navController.navigate(Screens.Clue.name)})
         }
         //navigate to the completion screen
         composable(route = Screens.Complete.name) {

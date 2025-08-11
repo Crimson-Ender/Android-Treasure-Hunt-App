@@ -16,7 +16,5 @@ data class THUiState(
 
     val usingFinePosition: Boolean=false,
 
-    val isTimeRunning: Boolean = true,
-
     var debugDistDiff: Double = 999.99
 )
