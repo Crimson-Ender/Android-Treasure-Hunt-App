@@ -1,3 +1,11 @@
+/*
+Author: Max Baker
+Email: bakerm7@oregonstate.edu
+OSU CS 492 - Mobile App Development
+Final Project: Treasure Hunt
+THUiState.kt
+ */
+
 package com.example.treasurehunt.model
 
 import com.example.treasure_hunt_fixed.data.THLocation

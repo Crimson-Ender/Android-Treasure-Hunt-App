@@ -1,3 +1,12 @@
+/*
+Author: Max Baker
+Email: bakerm7@oregonstate.edu
+OSU CS 492 - Mobile App Development
+Final Project: Treasure Hunt
+StartScreen.kt
+ */
+
+
 package com.example.treasure_hunt_fixed.ui
 
 import androidx.compose.foundation.background

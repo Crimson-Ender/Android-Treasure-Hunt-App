@@ -1,3 +1,13 @@
+/*
+Author: Max Baker
+Email: bakerm7@oregonstate.edu
+OSU CS 492 - Mobile App Development
+Final Project: Treasure Hunt
+CompleteScreen.kt
+ */
+
+
+
 package com.example.treasure_hunt_fixed.ui
 
 import android.graphics.Paint
@@ -120,6 +130,7 @@ fun CompleteScreen(thViewModel: THViewModel = viewModel(),
                 CoroutineScope(Dispatchers.Main).launch{
                     delay(300)
                     thViewModel.endGame()
+                    timerViewModel.stopTimer()
 
                 }
 
@@ -127,7 +138,7 @@ fun CompleteScreen(thViewModel: THViewModel = viewModel(),
                 modifier=modifier
                     .padding(10.dp)
                     .fillMaxWidth()) {
-                Text(stringResource(R.string.next_clue), fontWeight = FontWeight.SemiBold)
+                Text(stringResource(R.string.quit), fontWeight = FontWeight.SemiBold)
             }
         }
     }
