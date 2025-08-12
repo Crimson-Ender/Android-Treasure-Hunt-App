@@ -27,7 +27,11 @@ class THViewModel: ViewModel() {
 
     private fun resetApp(){
         locationsList = Datasource().loadLocations()
-        _uiState.value = THUiState(currentClue = 1, currentLocation = locationsList[0])
+        _uiState.value =
+            THUiState(currentClue = 1,
+                currentLocation = locationsList[0],
+                isCorrect = false,
+                isHintRevealed = false)
     }
 
     fun onPermissionsChange(usingFine: Boolean, usingCoarse:Boolean){
@@ -86,5 +90,9 @@ class THViewModel: ViewModel() {
                 isHintRevealed = false
         )
 
+    }
+
+    fun endGame(){
+        resetApp()
     }
 }

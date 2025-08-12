@@ -67,7 +67,8 @@ fun TreasureHuntApp(
         }
         //navigate to the completion screen
         composable(route = Screens.Complete.name) {
-            CompleteScreen(viewModel)
+            CompleteScreen(viewModel,timerViewModel,
+                onQuitButtonClicked = {navController.navigate(Screens.Start.name)})
         }
 
     }

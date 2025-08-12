@@ -37,6 +37,13 @@ import com.example.treasure_hunt_fixed.R
 import com.example.treasure_hunt_fixed.model.TimerViewModel
 import com.example.treasurehunt.model.THViewModel
 import com.google.android.gms.location.Priority
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.time.delay
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NextClueScreen(thViewModel: THViewModel = viewModel(),
@@ -114,8 +121,11 @@ fun NextClueScreen(thViewModel: THViewModel = viewModel(),
             Button(onClick = {
 
                 onNextButtonClicked()
-                thViewModel.nextLocation()
+                CoroutineScope(Dispatchers.Main).launch{
+                    delay(300)
+                    thViewModel.nextLocation()
 
+                }
 
             },
                 modifier=modifier
